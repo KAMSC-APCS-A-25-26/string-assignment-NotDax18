@@ -2,20 +2,23 @@ import java.util.Scanner;
 
 public class PalindromeChecker {
     public static void main(String[] args) {
-        // TODO: Create a Scanner and read a full line from the user with nextLine().
-        //       Keep the original input string so you can print it in the final message.
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a word: ");
+        String word = scanner.nextLine();
 
-        // TODO: Build a lowercase version of the input for checking (case-insensitive comparison).
-        //       (You don't need to remove spaces/punctuation for the current tests.)
+        String lowerWord = word.toLowerCase();
+        String reversed = "";
 
-        // TODO: Determine whether the lowercase string reads the same forwards and backwards.
-        //       Tip: compare it to a reversed copy of itself.
+        for (int i = lowerWord.length() - 1; i >= 0; i--) {
+            reversed += lowerWord.charAt(i);
+        }
 
-        // TODO: Treat single-character inputs as palindromes (the above check will already handle this).
+        if (lowerWord.equals(reversed)) {
+            System.out.println(word + " is a palindrome!");
+        } else {
+            System.out.println(word + " is NOT a palindrome.");
+        }
 
-        // TODO: Print EXACTLY ONE of the following lines (no extra punctuation/labels):
-        //       "<original> is a palindrome"
-        //       "<original> is not a palindrome"
-        //       where <original> is exactly what the user typed (preserve casing).
+        scanner.close();
     }
 }
